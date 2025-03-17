@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+      :root {
+        --dark-bg: #001d21;
+        --semi-dark-bg: #002b31;
+        --light-bg: #f3f4f2;
+        --white-color: #fff;
+        --main-header: #bdbbff;
+        --text-color-dark: #002b31;
+      }
+
+      body {
+        font-family: "Open Sans", sans-serif;
+        background-color: #ffffff;
+        color: #002b31;
+      }
+
+      .bg-dark-custom {
+        background-color: var(--dark-bg);
+      }
+
+      .bg-light {
+        background-color: var(--light-bg);
+      }
+
+      .bg-color{
+        background-color: var(--main-header);
+      }
+
+      /*headings and text*/
+
+      h1 {
+        font-size: 80px !important;
+        color: var(--main-header) !important;
+        font-weight: normal;
+      }
+
+      h2 {
+        font-size: 56px;
+        font-weight: normal;
+      }
+
+      h3 {
+        font-size: 40px;
+        font-weight: normal;
+      }
+
+      h4 {
+        font-size: 32px;
+        font-weight: normal;
+      }
+
+      h5 {
+        font-size: 24px;
+        font-weight: normal;
+      }
+
+      p,
+      ul,
+      li {
+        font-size: 16px;
+      }
+
+      /*buttons*/
+      .btn {
+        height: 48px !important;
+        height: fit-content;
+        font-size: 16px;
+        width: 200px;
+      }
+
+      .btn-large{
+        width: 300px;
+      }
+
+      .btn-white {
+        background-color: var(--white-color);
+      }
+
+      .btn-white:hover {
+        background-color: var(--main-header);
+        color: var(--text-color-dark);
+      }
+
+      .btn-color {
+        background-color: var(--semi-dark-bg);
+        color: var(--white-color);
+      }
+
+      .btn-color:hover {
+        background-color: dimgrey;
+        color: var(--white-color);
+      }
+
+      /*header*/
+      header .logo-text {
+        color: var(--white-color);
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      header .web-menu {
+        background-color: var(--semi-dark-bg);
+        height: 48px;
+        align-items: center !important;
+      }
+
+      header .web-menu li {
+        display: flex;
+        align-items: center;
+        height: 40px;
+        border-radius: 50px;
+        position: relative; /* Added for positioning context */
+      }
+
+      header .web-menu li:hover {
+        background-color: var(--white-color);
+        outline: none;
+      }
+
+      header .web-menu .btn {
+        color: var(--white-color);
+        width: fit-content;
+      }
+
+      /* Updated dropdown styles with animations */
+      .custom-dropdown {
+        position: relative;
+      }
+
+      .dropdown-menu {
+        display: block; /* Changed from none to block */
+        opacity: 0;
+        visibility: hidden;
+        margin-top: 10px;
+        width: 420px;
+        position: absolute;
+        transform: translateY(-10px);
+        transition: all 0.3s ease-in-out;
+      }
+
+      #first-dropdown {
+        left: 0;
+      }
+
+      #second-dropdown {
+        right: 0;
+      }
+
+      .custom-dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      /* Handle multiple dropdowns */
+      .web-menu li:not(:first-child) .custom-dropdown:hover .dropdown-menu {
+        animation: slideFromRight 0.3s ease-in-out;
+      }
+
+      .web-menu li:first-child .custom-dropdown:hover .dropdown-menu {
+        animation: slideFromLeft 0.3s ease-in-out;
+      }
+
+      header .web-menu .btn:hover {
+        color: var(--text-color-dark) !important;
+      }
+
+      .custom-dropdown:hover .arrow {
+        transform: rotate(180deg);
+      }
+
+      /* Transition for rotating the arrow */
+      .transition-rotate {
+        transition: transform 0.3s ease;
+      }
+
+      /* Animation keyframes for sliding effects */
+      @keyframes slideFromRight {
+        from {
+          opacity: 0;
+          transform: translateX(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes slideFromLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      /* Add smooth transition for dropdown items */
+      .dropdown-menu .dropdown-item {
+        transition: background-color 0.2s ease;
+        padding: 8px 16px;
+      }
+
+      /* Optional: Add hover effect for dropdown items */
+      .dropdown-menu .dropdown-item:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+
+      /* Transition for rotating the arrow */
+      .transition-rotate {
+        transition: transform 0.3s ease;
+      }
+
+      .section {
+        padding: 80px 0;
+      }
+
+      /*hero-section*/
+      #hero-section {
+        padding-top: 100px;
+        padding-bottom: 60px;
+        border-bottom: 1px solid var(--dark-bg);
+      }
+
+      #hero-section .hero-list li {
+        text-align: left;
+      }
+
+
+
+      #features-section .color-card {
+        background: var(--semi-dark-bg);
+        border-radius: 20px;
+      }
+
+
+      #industries-section i.fas {
+        font-size: 24px;
+        color: #807054;
+      }
+
+      .card{
+        border-top: 8px solid !important;
+        border-radius: 0px;
+      }
+
+      .card-body{
+        padding: 40px 30px;
+      }
+
+      #contact-section i.fas{
+        font-size: 16px;
+        color: #807054;
+      }
+
+      footer ul{
+        padding-left: 0;
+      }
+
+      footer a{
+        font-size: 14px;
+        text-decoration: none;
+      }
+      
+      footer a:hover{
+        color: #5955ff !important;
+      }
+      
+@media (max-width: 768px) {
+  h1 {
+    font-size: 60px !important;
+  }
+  h2 {
+    font-size: 48px;
+  }
+  h3 {
+    font-size: 36px;
+  }
+  h4 {
+    font-size: 28px;
+  }
+  h5 {
+    font-size: 20px;
+  }
+  p,
+  ul,
+  li {
+    font-size: 14px;
+  }
+  .section {
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 48px !important;
+  }
+  h2 {
+    font-size: 40px;
+  }
+  h3 {
+    font-size: 30px;
+  }
+  h4 {
+    font-size: 24px;
+  }
+  h5 {
+    font-size: 18px;
+  }
+  p,
+  ul,
+  li {
+    font-size: 12px;
+  }
+  .section {
+    padding: 40px 0;
+  }
+}
+
+    </style>
+
+    <style>
+      .focus-visible-opacity-100:focus-visible {
+        opacity: 1 !important;
+      }
+
+      /* Custom variables to match original design */
+      :root {
+        --header-height: 4rem;
+      }
+
+      /* Adjust button hover states */
+      .btn-link:hover {
+        background-color: var(--bs-gray-100);
+      }
+
+      /* Rounded pill navigation background */
+      .rounded-pill {
+        background-color: var(--bs-gray-100);
+      }
+
+      /* Ensure proper z-index stacking */
+      .z-2 {
+        z-index: 2;
+      }
+
+      .z-3 {
+        z-index: 3;
+      }
+    </style>
+    <style>
+      /*carousel settings*/
+      .carousel-container {
+        height: 400px;
+  width: 80%;
+  margin: 0px auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  min-height: 320px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 50px;
+  padding: 0 50px;
+}
+
+.carousel-slide h5{
+  font-weight: 600;
+}
+
+.carousel-slide h5, .carousel-slide p{
+  text-align: left;
+}
+
+.carousel-slide#slide-1 {
+  background-color: var(--main-header);
+}
+
+.carousel-slide#slide-2 {
+  background-color: #ceddec;
+}
+
+.user-photo {
+  width: 200px;
+    height: 240px;
+    border-radius: 80px;
+    margin-bottom: 20px;
+}
+
+.review-text {
+  display: flex;
+    height: 80%;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid var(--text-color-dark);
+    padding: 20px;
+}
+
+
+.review-text p {
+  font-size: 1.2em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.review-text h3 {
+  font-size: 1.5em;
+  color: #555;
+  margin-top: 10px;
+}
+
+.pagination-container {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.pagination {
+  display: flex;
+    gap: 10px;
+    width: 85%;
+    justify-content: center;
+}
+
+.dot {
+  position: relative;
+  overflow: hidden;
+  width: 10px;
+  height: 10px;
+  background-color: #ebeceb;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background-color: #ebeceb;
+  width: 40px;
+
+}
+
+.dot.active::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 0;
+        background: #8a744a;
+        border-radius: 10px;
+        animation: fillProgress 20s linear forwards;
+      }
+
+      @keyframes fillProgress {
+        0% {
+          width: 0%;
+        }
+        100% {
+          width: 100%;
+        }
+      }
+
+.arrow-controls {
+  display: flex;
+  width: 15%;
+  gap: 10px;
+}
+
+.arrow-carousel {
+  display: flex;
+    font-size: 24px;
+    color: var(--white-color);
+    cursor: pointer;
+    transition: color 0.3s;
+    background: #bebfbd;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+    </style>
+  </head>
+  <body>
+    <header class="fixed-top shadow-sm bg-dark-custom py-3">
+      <div class="container-xxl h-100">
+        <div
+          class="d-flex align-items-center justify-content-between h-100 position-relative px-3 px-sm-4 px-xl-3"
+        >
+          <div class="position-relative z-3">
+            <span class="logo-text">MARM</span>
+          </div>
+          <nav
+            class="position-absolute start-0 end-0 z-2 d-none d-md-flex justify-content-center"
+          >
+            <div class="position-relative">
+              <ul
+                class="web-menu d-flex align-items-stretch list-unstyled rounded-pill px-2 mb-0"
+              >
+                <li>
+                  <div class="custom-dropdown">
+                    <button href="#"
+                      class="btn h-100 px-4 d-flex align-items-center gap-2"
+                    >
+                      <span>Products</span>
+                      <i
+                        class="fas fa-chevron-down transition-rotate arrow"
+                      ></i>
+                    </button>
+                    <div class="dropdown-menu" id="first-dropdown">
+                      <a class="dropdown-item" href="#">Product 1</a>
+                      <a class="dropdown-item" href="#">Product 2</a>
+                      <a class="dropdown-item" href="#">Product 3</a>
+                    </div>
+                  </div>
+                </li>
+
+                <li>
+                  <button href="#" class="btn h-100 px-4 d-flex align-items-center">
+                    <span>Pricing</span>
+                  </button>
+                </li>
+
+                <li>
+                  <div class="custom-dropdown">
+                    <button href="#"
+                      class="btn h-100 px-4 d-flex align-items-center gap-2"
+                    >
+                      <span>Resources</span>
+                      <i
+                        class="fas fa-chevron-down transition-rotate arrow"
+                      ></i>
+                    </button>
+                    <div class="dropdown-menu" id="second-dropdown">
+                      <a class="dropdown-item" href="#">Resource 1</a>
+                      <a class="dropdown-item" href="#">Resource 2</a>
+                      <a class="dropdown-item" href="#">Resource 3</a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </nav>
+
+          <div
+            class="position-relative z-3 d-none d-md-flex align-items-center gap-2"
+          >
+            <button href="#" class="btn btn-white px-4">Request a Demo</button>
+          </div>
+
+                <button href="#"
+            class="btn d-md-none translate-middle-x position-relative z-3"
+            type="button"
+          >
+            Menu
+          </button>
+        </div>
+      </div>
+    </header>
+    <section class="section position-relative text-white bg-dark-custom" id="hero-section">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="overflow-hidden">
+            <div class="container-xxl py-5">
+              <div class="mx-auto mb-4">
+                <div
+                  class="d-flex flex-column align-items-center text-center mx-auto"
+                  data-aos="fade-up" data-aos-duration="1000">
+                  <h1 class="mb-3">
+                    Next-Gen AI Fraud Detection for Businesses
+                  </h1>
+                  <h5 class="mb-5">
+                    We're a fast-moving startup on a mission: to stop fraud
+                    before it happens. Our AI-driven system spots and shuts down
+                    fraud in real-time, keeping your business secure and
+                    stress-free.
+                  </h5>
+
+                  <h5>Why Choose Us?</h5>
+
+                  <ul class="hero-list mb-4">
+                    <li>Cutting-edge AI that learns and adapts</li>
+                    <li>Lightning-fast fraud detection and prevention</li>
+                    <li>Scalable for startups and enterprises alike</li>
+                    <li>Easy, seamless integration—no headaches!</li>
+                  </ul>
+
+                  <div class="d-flex flex-wrap gap-2 justify-content-center">
+                    <button href="#" class="btn btn-white btn-lg px-4">
+                      Request a Demo
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-none d-sm-block w-100" data-aos="fade-up" data-aos-duration="1000">
+                <div>
+                  <img
+                    width="1692"
+                    height="628"
+                    class="img-fluid w-100"
+                    src="files/eae5dad0ef6f7d73f61a7f3b3c4ea096bafb049e-1692x628.svg"
+                  />
+                </div>
+              </div>
+
+              <div class="d-block d-sm-none w-100 pt-3" data-aos="fade-up" data-aos-duration="1000">
+                <div>
+                  <img
+                    width="980"
+                    height="951"
+                    class="img-fluid w-100"
+                    src="files/8c1e182fb4df3cb9a55ca52c9a8d3d7ee2559e37-980x951.svg"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section text-white bg-dark-custom" id="features-section">
+      <div class="container-xxl py-4">
+        <div class="row">
+          <div class="col-12 col-lg-10 offset-lg-1">
+            <div class="d-flex flex-column gap-5">
+              <div
+                class="d-flex flex-column align-items-center text-center mx-auto"
+                data-aos="fade-up" data-aos-duration="1000">
+                <h2 class="mb-3">Smarter AI, Safer Business</h2>
+              </div>
+
+              <div class="row row-cols-1 row-cols-sm-2 g-4">
+                <div class="col" data-aos="fade-up" data-aos-duration="1000">
+                  <div class="color-card d-flex flex-column h-100 gap-4">
+                    <div
+                      class="d-flex flex-column gap-2 p-4 pt-md-5 px-md-5 pb-md-0"
+                    >
+                      <h4>Real-Time Protection</h4>
+                      <div class="d-flex flex-column gap-3">
+                        <p class="mb-0">
+                          Stop fraud in its tracks with live AI analysis
+                        </p>
+                      </div>
+                    </div>
+                    <img
+                      src="files/f3b720cf1a8e1af214cdda089fb8346202e066ef-640x320.svg"
+                      width="640"
+                      height="320"
+                      class="w-100"
+                    />
+                  </div>
+                </div>
+
+                <div class="col" data-aos="fade-up" data-aos-duration="1000">
+                  <div class="color-card d-flex flex-column h-100 gap-4">
+                    <div
+                      class="d-flex flex-column gap-2 p-4 pt-md-5 px-md-5 pb-md-0"
+                    >
+                      <h4>Always Learning</h4>
+                      <div class="d-flex flex-column gap-3">
+                        <p class="mb-0">
+                          Our machine learning gets smarter every day
+                        </p>
+                      </div>
+                    </div>
+                    <img
+                      src="files/7eda2e1959192b104a35c7380ab1661e0040b48f-640x320.svg"
+                      alt=""
+                      width="640"
+                      height="320"
+                      class="w-100"
+                    />
+                  </div>
+                </div>
+
+                <div class="col" data-aos="fade-up" data-aos-duration="1000">
+                  <div class="color-card d-flex flex-column h-100 gap-4">
+                    <div
+                      class="d-flex flex-column gap-2 p-4 pt-md-5 px-md-5 pb-md-0"
+                    >
+                      <h4>Behavior-Based Detection</h4>
+                      <div class="d-flex flex-column gap-3">
+                        <p class="mb-0">Catch fraudsters before they strike</p>
+                      </div>
+                    </div>
+                    <img
+                      src="files/aabb473cf1e5e8078295696a5a0e667a535513c1-640x320.svg"
+                      alt=""
+                      width="640"
+                      height="320"
+                      class="w-100"
+                    />
+                  </div>
+                </div>
+
+                <div class="col" data-aos="fade-up" data-aos-duration="1000">
+                  <div class="color-card d-flex flex-column h-100 gap-4">
+                    <div
+                      class="d-flex flex-column gap-2 p-4 pt-md-5 px-md-5 pb-md-0"
+                    >
+                      <h4>Automated Risk Scoring</h4>
+                      <div class="d-flex flex-column gap-3">
+                        <p class="mb-0">Instantly assess suspicious activity</p>
+                      </div>
+                    </div>
+                    <img
+                      src="files/a9a81a7dfa04e8823626b3e4d261b33a564a119c-640x320.svg"
+                      alt=""
+                      width="640"
+                      height="320"
+                      class="w-100"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="row row-cols-1 row-cols-sm-1 g-12" data-aos="fade-up" data-aos-duration="1000">
+                <div class="col">
+                  <div class="color-card d-flex flex-column h-100 gap-4">
+                    <div
+                      class="d-flex flex-column gap-2 p-4 pt-md-5 px-md-5 pb-md-0"
+                    >
+                      <h4>Real-Time Protection</h4>
+                      <div
+                        class="d-flex flex-column gap-3"
+                        style="opacity: 0.7"
+                      >
+                        <p class="mb-0">
+                          Stop fraud in its tracks with live AI analysis
+                        </p>
+                      </div>
+                    </div>
+                    <img
+                      src="files/f3b720cf1a8e1af214cdda089fb8346202e066ef-640x320.svg"
+                      alt=""
+                      width="640"
+                      height="320"
+                      class="w-100"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex flex-wrap gap-2 justify-content-center">
+                <button href="#" class="btn btn-white btn-lg px-4">
+                  Request a Demo
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="industries-section">
+      <div class="container-xxl px-4 px-sm-5">
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-10">
+            <div class="d-flex flex-column gap-4">
+              <div class="text-center mx-auto" data-aos="fade-up" data-aos-duration="1000"style="max-width: 696px">
+                <h2 class="mb-3">Built for Fast-Growing Industries</h2>
+                <p>
+                  We help businesses across multiple industries fight fraud:
+                </p>
+              </div>
+
+              <div class="row g-4" data-aos="fade-up" data-aos-duration="1000">
+                <div class="col-12 col-sm-6 col-md-4">
+                  <div class="d-flex flex-column gap-3 ps-4 border-start">
+                    <i class="fas fa-credit-card"></i>
+                    <div>
+                      <p class="fw-medium mb-1">FinTech & Banking</p>
+                      <p>Keep accounts safe and stay compliant</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4">
+                  <div class="d-flex flex-column gap-3 ps-4 border-start">
+                    <i class="fas fa-shopping-cart"></i>
+                    <div>
+                      <p class="fw-medium mb-1">E-Commerce</p>
+                      <p>Cut chargebacks and protect online payments</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4">
+                  <div class="d-flex flex-column gap-3 ps-4 border-start">
+                    <i class="fas fa-shield-alt"></i>
+                    <div>
+                      <p class="fw-medium mb-1">Insurance</p>
+                      <p>Catch fraudulent claims before they cost you</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row justify-content-center g-4 mt-2" data-aos="fade-up" data-aos-duration="1000">
+                <div class="col-12 col-sm-6 col-md-4">
+                  <div class="d-flex flex-column gap-3 ps-4 border-start">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <div>
+                      <p class="fw-medium mb-1">Healthcare</p>
+                      <p>Secure patient data and prevent identity theft</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4">
+                  <div class="d-flex flex-column gap-3 ps-4 border-start">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                      <p class="fw-medium mb-1">Telecom</p>
+                      <p>Stop SIM-swapping and account takeovers</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex flex-wrap gap-2 justify-content-center" data-aos="fade-up" data-aos-duration="1000">
+                <button href="#" class="btn btn-color btn-lg px-4">
+                  Request a Demo
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="testimonials-section">
+      <div class="container-xxl px-4 px-sm-5">
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-10">
+            <div class="d-flex flex-column gap-4">
+              <div>
+                <div class="text-center mx-auto">
+                  <h2 class="mb-3" data-aos="fade-up" data-aos-duration="1000">Proof That It Works</h2>
+                  <h5 data-aos="fade-up" data-aos-duration="1000">Success Story: Slashing E-Commerce Fraud</h5>
+                  <p class="mb-5" data-aos="fade-up" data-aos-duration="1000">
+                    A major online retailer cut fraudulent chargebacks by 70%
+                    with our AI-powered fraud detection. Smart tracking and
+                    predictive analytics gave them the edge over fraudsters.
+                  </p>
+                  <h4 data-aos="fade-up" data-aos-duration="1000">What Our Clients Say</h4>
+                </div>
+              </div>
+
+              <div class="carousel-container" data-aos="fade-up" data-aos-duration="1000">
+                <div class="carousel">
+                  <div class="carousel-slide" id="slide-1">
+                    
+                    <div class="review-text">
+                      <h5>
+                        "Fraud losses? What fraud losses? This system saved us a fortune!" 
+                      </h5>
+                      <p>CFO, FinTech Startup</p>
+                    </div>
+                    <img src="files/00c68b8bd809f989a2ce711209c6eee731254554-320x497.jpg" alt="User 1" class="user-photo" />
+                  </div>
+                  <div class="carousel-slide" id="slide-2">
+                   
+                    <div class="review-text">
+                      <h5>
+                        "We stopped thousands of dollars in fraud overnight. Best investment we made."
+                      </h5>
+                      <p>CEO, Insurance Firm</p>
+                    </div>
+                    <img src="files/00c68b8bd809f989a2ce711209c6eee731254554-320x497.jpg" alt="User 2" class="user-photo" />
+                  </div>
+                </div>
+                <div class="pagination-container">
+                  <div class="pagination">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                  </div>
+                  <div class="arrow-controls">
+                    <span class="arrow-carousel prev"><i class="fas fa-arrow-left"></i></span>
+                    <span class="arrow-carousel next"><i class="fas fa-arrow-right"></i></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex flex-wrap gap-2 justify-content-center" data-aos="fade-up" data-aos-duration="1000">
+                <button href="#" class="btn btn-large btn-color btn-lg px-4">
+                  Read More Success Stories
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="team-section">
+      <div class="container-xxl px-4 px-sm-5">
+        <div class="d-flex flex-column">
+          <div class="text-center mb-4">
+            <div class="mx-auto">
+              <h2 class="mb-3" data-aos="fade-up" data-aos-duration="1000">Meet the Team Fighting Fraud</h2>
+              <p data-aos="fade-up" data-aos-duration="1000">
+                We’re a passionate team of AI nerds and security experts who
+                believe businesses should be free from fraud. With cutting-edge
+                technology and years of expertise, we’re here to make fraud
+                prevention smarter, faster, and easier.
+              </p>
+              <div class="d-flex flex-wrap justify-content-center gap-3 mb-4" data-aos="fade-up" data-aos-duration="1000">
+                <button href="#" class="btn btn-color btn-lg px-4"
+                  >Meet Our Team</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section py-5 bg-light" id="journey-section">
+      <div class="container-xxl px-4 px-sm-5">
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-10">
+            <div class="d-flex flex-column gap-4">
+
+              <div class="text-center" data-aos="fade-up" data-aos-duration="1000">
+                <h2 class="mb-3">Our Growth Journey</h2>
+              </div>
+
+              <div class="row row-cols-1 row-cols-md-3 g-4" data-aos="fade-up" data-aos-duration="1000">
+                <div class="col">
+                  <div class="card h-100 border-0" style="border-color: #999f9933 !important;">
+                    <div class="card-body">
+                      <div class="border-bottom pb-4">
+                          <h4>Proof of Concept (POC)</h4>
+                        <p class="mb-0">
+                          Validating our AI fraud detection system with
+                          real-world data and pilot projects.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="col">
+                  <div class="card h-100 border-0" style="border-color: var(--main-header) !important;">
+                    <div class="card-body">
+                      <div class="border-bottom pb-4">
+
+                          <h4>Market Research</h4>
+
+                        <p class="mb-0">
+                          Engaging with industry leaders, gathering insights,
+                          and refining our product to meet market needs.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="col">
+                  <div class="card h-100 border-0" style="border-color: #5955ff !important;">
+                    <div class="card-body">
+                      <div class="border-bottom pb-4">
+
+                          <h4>SEED Fundraising Status</h4>
+
+                        <p class="mb-0">
+                          Currently raising funds to scale our technology,
+                          expand our team, and bring next-gen fraud prevention
+                          to businesses worldwide.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact-section">
+      <div class="container-xxl px-4 px-sm-5">
+        <div class="d-flex flex-column">
+          <div class="text-center mb-4">
+            <div class="mx-auto">
+              <h2 class="mb-3" data-aos="fade-up" data-aos-duration="1000">Let’s Talk Fraud Prevention</h2>
+              <p data-aos="fade-up" data-aos-duration="1000"><i class="fas fa-envelope"></i> Email: [your email]</p>
+              <p data-aos="fade-up" data-aos-duration="1000"><i class="fas fa-phone"></i> Phone: [your phone number]</p>
+              <p data-aos="fade-up" data-aos-duration="1000"><i class="fas fa-globe"></i> Website: [your website URL]</p>
+              <div class="d-flex flex-wrap justify-content-center gap-3 mb-4" data-aos="fade-up" data-aos-duration="1000">
+                <button href="#" class="btn btn-color btn-lg px-4">Request a Demo</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="text-white">
+      <div class="container py-5">
+        <section class="row border-bottom py-5">
+          <div class="col-12 col-md-3">
+            <h5 class="text-muted">Get started</h5>
+            <div class="d-md-none">
+              <button href="#"
+                class="btn btn-link w-100 text-muted d-flex justify-content-between align-items-center"
+              >
+                <h3 class="text-muted">Get started</h3>
+                <img
+                  src="arrow-icon.png"
+                  alt="Arrow icon"
+                  width="20"
+                  height="20"
+                />
+              </button>
+            </div>
+            <ul class="d-none d-md-flex flex-column gap-3">
+              <li><a href="#" class="text-muted">Sign in</a></li>
+              <li><a href="#" class="text-muted">Contact sales</a></li>
+            </ul>
+          </div>
+
+          <div class="col-12 col-md-3">
+            <h5 class="text-muted">Fund Managers</h5>
+            <div class="d-md-none">
+              <button
+                class="btn btn-link w-100 text-muted d-flex justify-content-between align-items-center"
+              >
+                <h3 class="text-muted">Fund Managers</h3>
+                <img
+                  src="arrow-icon.png"
+                  alt="Arrow icon"
+                  width="20"
+                  height="20"
+                />
+              </button>
+            </div>
+            <ul class="d-none d-md-flex flex-column gap-3">
+              <li><a href="#" class="text-muted">Rolling Funds®</a></li>
+              <li><a href="#" class="text-muted">Venture Funds</a></li>
+              <li><a href="#" class="text-muted">Syndicates</a></li>
+              <li><a href="#" class="text-muted">Networked banking</a></li>
+              <li><a href="#" class="text-muted">Scout Funds</a></li>
+              <li><a href="#" class="text-muted">AngelList vs. Carta</a></li>
+              <li><a href="#" class="text-muted">Fin (Beta)</a></li>
+            </ul>
+          </div>
+
+          <div class="col-12 col-md-3">
+            <h5 class="text-muted">Pricing + Returns</h5>
+            <div class="d-md-none">
+              <button
+                class="btn btn-link w-100 text-muted d-flex justify-content-between align-items-center"
+              >
+                <h3 class="text-muted">Pricing + Returns</h3>
+                <img
+                  src="arrow-icon.png"
+                  alt="Arrow icon"
+                  width="20"
+                  height="20"
+                />
+              </button>
+            </div>
+            <ul class="d-none d-md-flex flex-column gap-3">
+              <li><a href="#" class="text-muted">Pricing</a></li>
+              <li><a href="#" class="text-muted">Fund Cost Calculator</a></li>
+              <li>
+                <a href="#" class="text-muted"
+                  >VC Fund Performance Calculator</a
+                >
+              </li>
+              <li><a href="#" class="text-muted">RUV Calculator</a></li>
+            </ul>
+          </div>
+
+          <div class="col-12 col-md-3">
+            <h5 class="text-muted">Startups + Investors</h3>
+            <div class="d-md-none">
+              <button
+                class="btn btn-link w-100 text-muted d-flex justify-content-between align-items-center"
+              >
+                <h3 class="text-muted">Startups + Investors</h3>
+                <img
+                  src="arrow-icon.png"
+                  alt="Arrow icon"
+                  width="20"
+                  height="20"
+                />
+              </button>
+            </div>
+            <ul class="d-none d-md-flex flex-column gap-3">
+              <li><a href="#" class="text-muted">Roll Up Vehicles™</a></li>
+              <li><a href="#" class="text-muted">Demo Day Funds</a></li>
+              <li><a href="#" class="text-muted">Limited</a></li>
+            </ul>
+          </div>
+        </section>
+
+        <section
+          class="d-flex justify-content-between align-items-center border-bottom pt-3 pb-3 mb-3"
+        >
+          <div class="d-flex gap-3">
+            <a href="#" class="text-muted">Terms</a>
+            <a href="#" class="text-muted">Privacy</a>
+            <a href="#" class="text-muted">Disclosures</a>
+            <a href="#" class="text-muted">Cookie Settings</a>
+            <span>© AL Advisors Management Inc.</span>
+          </div>
+        </section>
+
+        <div class="d-md-block text-muted">
+          <div class="pt-3">
+            <span class="font-weight-bold d-md-none">Disclaimer:</span>
+            <p>
+              The information contained herein is provided for informational and
+              discussion purposes only and is not intended to be a
+              recommendation for any investment, service, product, or other
+              advice of any kind, and shall not constitute or imply an offer of
+              any kind. Any investment opportunities and/or products or services
+              shown here will only be completed pursuant to formal offering
+              materials, a letter of intent, and/or any other agreements as
+              determined by AngelList containing full details regarding risks,
+              minimum investment, fees, and expenses of such transaction.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+ let currentSlide = 0;
+const slides = document.querySelectorAll('.carousel-slide');
+const totalSlides = slides.length;
+const dots = document.querySelectorAll('.dot');
+const prevArrow = document.querySelector('.prev');
+const nextArrow = document.querySelector('.next');
+
+function changeSlide() {
+  currentSlide = (currentSlide + 1) % totalSlides;
+  const carousel = document.querySelector('.carousel');
+  carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+  updateDots();
+}
+
+
+function updateDots() {
+  dots.forEach(dot => {
+    dot.classList.remove('active');
+    dot.style.width = "10px"; 
+    });
+
+  const activeDot = dots[currentSlide];
+  activeDot.classList.add('active');
+  activeDot.style.width = "40px";
+}
+
+function prevSlide() {
+  currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+  const carousel = document.querySelector('.carousel');
+  carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+  updateDots();
+}
+
+function nextSlide() {
+  changeSlide();
+}
+
+setInterval(changeSlide, 20000);
+
+dots.forEach((dot, index) => {
+  dot.addEventListener('click', () => {
+    currentSlide = index;
+    const carousel = document.querySelector('.carousel');
+    carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+    updateDots();
+  });
+});
+
+prevArrow.addEventListener('click', prevSlide);
+nextArrow.addEventListener('click', nextSlide);
+
+updateDots();
+        </script>
+<script>
+  AOS.init();
+</script>
+  </body>
+</html>
