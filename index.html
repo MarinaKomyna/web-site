@@ -108,6 +108,10 @@
       }
 
       /* Header Styles */
+      header{
+padding: 0;
+      }
+
       .header-content {
         height: var(--header-height);
       }
@@ -193,7 +197,7 @@
 
       .nav-link {
         color: var(--white-color);
-        padding: 8px 16px;
+        padding: 8px 24px;
         border-radius: 25px;
         transition: var(--menu-transition);
         width: 100%;
@@ -273,7 +277,34 @@
         border-radius: 20px;
       }
 
-      /* Tablet & Mobile Styles */
+      .card{
+        height: 100%;
+        border-top: 8px solid !important;
+        border-radius: 0px;
+      }
+
+      .card-body{
+        padding: 40px 30px;
+      }
+
+      #contact-section i.fas{
+        font-size: 16px;
+        color: #807054;
+      }
+
+footer ul {
+  padding-left: 0;
+}
+
+footer a {
+  font-size: 14px;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--blue-link) !important;
+}
+
       @media (max-width: 991px) {
         .mobile-menu-btn {
           display: block;
@@ -524,7 +555,7 @@
   cursor: pointer;
   transition: color 0.3s;
   background: var(--grey-medium);
-  width: 50px;
+  width: 70px;
   height: 50px;
   border-radius: 50px;
   justify-content: center;
@@ -540,10 +571,39 @@
     width: 100%;
   }
 }
+
+@media (max-width: 768px) {
+    .carousel-container {
+    height: 490px;
+    overflow-y: auto;
+}
+    .carousel-slide {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .review-text {
+        padding: 10px;
+        border: none;
+    }
+
+    .user-photo {
+        width: auto;
+    }
+
+    .pagination {
+        width: 100%;
+    }
+
+    .arrow-controls {
+        display: none;
+    }
+}
     </style>
   </head>
   <body>
-    <header class="fixed-top shadow-sm bg-dark-custom py-3">
+    <header class="fixed-top shadow-sm bg-dark-custom">
       <div class="container-xxl">
         <div class="header-content d-flex align-items-center justify-content-between position-relative px-3">
           <!-- Logo -->
@@ -1050,15 +1110,10 @@
               <h5 class="text-muted">Get started</h5>
               <div class="d-md-none">
                 <button href="#"
-                  class="btn btn-link w-100 text-muted d-flex justify-content-between align-items-center"
+                  class="btn w-100 text-muted d-flex justify-content-between align-items-center"
                 >
-                  <h3 class="text-muted">Get started</h3>
-                  <img
-                    src="arrow-icon.png"
-                    alt="Arrow icon"
-                    width="20"
-                    height="20"
-                  />
+                  <h5 class="text-muted">Get started</h5>
+                  <i class="fas fa-chevron-down"></i>
                 </button>
               </div>
               <ul class="d-none d-md-flex flex-column gap-3">
@@ -1071,15 +1126,10 @@
               <h5 class="text-muted">Fund Managers</h5>
               <div class="d-md-none">
                 <button
-                  class="btn btn-link w-100 text-muted d-flex justify-content-between align-items-center"
+                  class="btn w-100 text-muted d-flex justify-content-between align-items-center"
                 >
-                  <h3 class="text-muted">Fund Managers</h3>
-                  <img
-                    src="arrow-icon.png"
-                    alt="Arrow icon"
-                    width="20"
-                    height="20"
-                  />
+                  <h5 class="text-muted">Fund Managers</h5>
+                  <i class="fas fa-chevron-down"></i>
                 </button>
               </div>
               <ul class="d-none d-md-flex flex-column gap-3">
@@ -1097,15 +1147,10 @@
               <h5 class="text-muted">Pricing + Returns</h5>
               <div class="d-md-none">
                 <button
-                  class="btn btn-link w-100 text-muted d-flex justify-content-between align-items-center"
+                  class="btn w-100 text-muted d-flex justify-content-between align-items-center"
                 >
-                  <h3 class="text-muted">Pricing + Returns</h3>
-                  <img
-                    src="arrow-icon.png"
-                    alt="Arrow icon"
-                    width="20"
-                    height="20"
-                  />
+                  <h5 class="text-muted">Pricing + Returns</h5>
+                  <i class="fas fa-chevron-down"></i>
                 </button>
               </div>
               <ul class="d-none d-md-flex flex-column gap-3">
@@ -1121,18 +1166,13 @@
             </div>
   
             <div class="col-12 col-md-3">
-              <h5 class="text-muted">Startups + Investors</h3>
+              <h5 class="text-muted">Startups + Investors</h5>
               <div class="d-md-none">
                 <button
-                  class="btn btn-link w-100 text-muted d-flex justify-content-between align-items-center"
+                  class="btn w-100 text-muted d-flex justify-content-between align-items-center"
                 >
-                  <h3 class="text-muted">Startups + Investors</h3>
-                  <img
-                    src="arrow-icon.png"
-                    alt="Arrow icon"
-                    width="20"
-                    height="20"
-                  />
+                  <h5 class="text-muted">Startups + Investors</h5>
+                  <i class="fas fa-chevron-down"></i>
                 </button>
               </div>
               <ul class="d-none d-md-flex flex-column gap-3">
@@ -1151,7 +1191,6 @@
               <a href="#" class="text-muted">Privacy</a>
               <a href="#" class="text-muted">Disclosures</a>
               <a href="#" class="text-muted">Cookie Settings</a>
-              <span>© AL Advisors Management Inc.</span>
             </div>
           </section>
   
